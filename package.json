@@ -18,7 +18,7 @@
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.{json,md,yml,css}": [
+    "*.{json,md,yml,css,ts,tsx}": [
       "prettier --write"
     ]
   },
