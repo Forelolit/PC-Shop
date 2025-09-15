@@ -14,7 +14,11 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix --color"
     ],
-    "*.{json,md,yml,css,scss,tsx,ts}": [
+    "*.scss": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,css}": [
       "prettier --write"
     ]
   },
@@ -38,6 +42,9 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-standard-scss": "^16.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"
