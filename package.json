@@ -14,10 +14,7 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ],
-    "*.scss": [
-      "stylelint --fix"
-    ],
-    "*.{json,md,yml,css}": [
+    "*.{json,md,yml,scss,tsx,ts}": [
       "prettier --write"
     ]
   },
