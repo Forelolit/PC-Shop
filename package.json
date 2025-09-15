@@ -12,9 +12,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix --color"
     ],
-    "*.{json,md,yml,scss,tsx,ts}": [
+    "*.{json,md,yml,css,scss,tsx,ts}": [
       "prettier --write"
     ]
   },
