@@ -1,12 +1,14 @@
 .header {
-  border-bottom: 2px solid #ccc;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+  border-bottom: 2px solid $color-border;
+  margin-bottom: 50px;
   padding: 10px 0;
 
-  .logo {
-    font-size: 48px;
-    font-weight: bold;
+  .container {
+    @include flexbox(space-between);
+
+    .logo {
+      font-size: 48px;
+      font-weight: bold;
+    }
   }
 }

@@ -1,11 +1,12 @@
 .nav {
-    ul {
-        display: flex;
-        gap: 20px;
-        list-style: none;
+  ul {
+    gap: 20px;
+    list-style: none;
 
-        li a {
-            text-decoration: none;
-        }
+    @include flexbox;
+
+    li a {
+      text-decoration: none;
     }
+  }
 }

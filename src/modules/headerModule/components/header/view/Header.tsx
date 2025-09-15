@@ -3,15 +3,22 @@ import styles from './Header.module.scss';
 import { Navbar } from '../../navbar';
 import { Link } from 'react-router';
 import { path } from '@utils/constants/constants';
+import { Container } from '@ui/container';
 
 export const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link to={path.home}>Link</Link>
-      </div>
+      <Container className={styles.container}>
+        <div className={styles.logo}>
+          <Link to={path.home}>
+            <img src="/" alt="Logo image" />
+          </Link>
+        </div>
 
-      <Navbar />
+        <Navbar />
+
+        <div>lng changer</div>
+      </Container>
     </header>
   );
 };

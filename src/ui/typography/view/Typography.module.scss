@@ -1,0 +1,147 @@
+.h1 {
+  font-size: 3.75rem; /* 60px */
+  line-height: 110%;
+  font-weight: 700;
+  color: $color-text;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+  }
+}
+
+.h2 {
+  font-size: 2.5rem; /* 40px */
+  line-height: 110%;
+  font-weight: 700;
+  color: $color-text;
+
+  @include breakpoint(mobile) {
+    font-size: 1.75rem;
+  }
+}
+
+.h3 {
+  font-size: 2rem; /* 32px */
+  line-height: 110%;
+  font-weight: 600;
+  color: $color-text;
+
+  @include breakpoint(mobile) {
+    font-size: 1.75rem;
+  }
+}
+
+.h4 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 110%;
+  font-weight: 500;
+  white-space: pre-line;
+  color: $color-text;
+
+  @include breakpoint(mobile) {
+    font-size: 1.25rem;
+  }
+}
+
+.h5 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 140%;
+  font-weight: 500;
+
+  /* color: $color-text; */
+
+  @include breakpoint(mobile) {
+    font-size: 1rem;
+  }
+}
+
+.p {
+  font-size: 1rem; /* 16px */
+  line-height: 160%;
+  font-weight: 400;
+  color: $color-text;
+}
+
+@include breakpoint(tablet) {
+  .h1 {
+    font-size: 3rem; /* 48px */
+  }
+
+  .h2 {
+    font-size: 2rem; /* 32px */
+  }
+
+  .h3 {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .h4 {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+@include breakpoint(mobile) {
+  .h1 {
+    font-size: 2rem; /* 32px */
+  }
+
+  .h2 {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .h3 {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  .h4 {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.black {
+  color: $color-text;
+}
+
+.white {
+  color: $color-white;
+}
+
+.grey {
+  color: $color-text-muted;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}

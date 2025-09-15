@@ -1,0 +1,34 @@
+.wrapper {
+  padding: 15px 15px 25px;
+  border: 2px solid $color-border;
+  border-radius: 1rem;
+
+  .imageWrapper {
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    margin-bottom: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    border-top: 2px solid $color-border;
+    padding: 8px 0;
+  }
+
+  .priceBlock {
+    gap: 10px;
+
+    @include flexbox(unset);
+
+    .sale {
+      background-color: $color-accent;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  }
+}
