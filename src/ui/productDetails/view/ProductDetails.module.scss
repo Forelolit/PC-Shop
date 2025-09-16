@@ -19,16 +19,4 @@
     border-top: 2px solid $color-border;
     padding: 8px 0;
   }
-
-  .priceBlock {
-    gap: 10px;
-
-    @include flexbox(unset);
-
-    .sale {
-      background-color: $color-accent;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-  }
 }

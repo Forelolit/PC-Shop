@@ -7,6 +7,12 @@
 
     li a {
       text-decoration: none;
+      color: inherit;
+      transition: 0.3s color ease-in-out;
+
+      &:hover {
+        color: $color-primary;
+      }
     }
   }
 }

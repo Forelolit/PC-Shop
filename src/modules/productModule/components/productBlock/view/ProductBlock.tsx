@@ -1,7 +1,7 @@
-import { Container, ProductDetails, Typography } from '@ui/index';
+import styles from './ProductBlock.module.scss';
+import { Button, Container, ProductPrice, Typography } from '@ui/index';
 import type { FC } from 'react';
-import styles from './ProductsBlock.module.scss';
-import { Link } from 'react-router';
+import { useParams } from 'react-router';
 
 const items = [
   {
@@ -41,23 +41,29 @@ const items = [
   },
 ];
 
-export const ProductsBlock: FC = () => {
+export const ProductBlock: FC = () => {
+  const params = useParams();
   return (
     <section className={styles.wrapper}>
       <Container>
-        <Typography variant="h2">Готовые наборы</Typography>
-        <div className={styles.content}>
-          {items.map((item) => (
-            <Link to={`/product/${item.id}/${item.to}`}>
-              <ProductDetails
-                name={item.label}
-                thumbnail={item.image}
-                price={item.price}
-                discount={item.discount}
-              />
-            </Link>
-          ))}
-        </div>
+        {items.map(
+          (item) =>
+            item.id.toString() === params.id && (
+              <div key={item.id} className={styles.productContent}>
+                <div className={styles.swiper}>
+                  <div className={styles.imageWrapper}>
+                    <img src={item.image} alt={`${item.label}, image`} />
+                  </div>
+                </div>
+
+                <div className={styles.productInfo}>
+                  <Typography>{item.label}</Typography>
+                  <ProductPrice price={item.price} discount={item.discount} />
+                  <Button>Купить</Button>
+                </div>
+              </div>
+            )
+        )}
       </Container>
     </section>
   );
