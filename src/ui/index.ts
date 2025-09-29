@@ -3,3 +3,5 @@ export { Container } from './container/index';
 export { ProductDetails } from './productDetails/index';
 export { ProductPrice } from './productPrice/index';
 export { Button } from './button/index';
+export { CustomSwiper } from './customSwiper/index';
+export { Dropdown } from './dropdown/index';

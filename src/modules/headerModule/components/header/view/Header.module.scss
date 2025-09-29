@@ -10,5 +10,50 @@
       font-size: 48px;
       font-weight: bold;
     }
+
+    .userFeatures {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .buttons {
+        & > *:first-child {
+          margin-right: 8px;
+
+          svg {
+            stroke: $color-error;
+          }
+        }
+
+        & > *:nth-child(2) {
+          svg {
+            stroke: $color-success;
+          }
+        }
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 30px;
+
+        .userAvatar {
+          border-radius: 50%;
+          border: 2px solid $color-border;
+          padding: 10px;
+
+          svg {
+            stroke: $color-primary;
+          }
+        }
+      }
+
+      .authButtons {
+        & > *:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
   }
 }

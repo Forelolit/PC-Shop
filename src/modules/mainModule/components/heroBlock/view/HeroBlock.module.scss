@@ -1,22 +1,3 @@
 .wrapper {
   margin-bottom: 80px;
-
-  .swiper {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-
-    div {
-      color: white;
-      text-transform: uppercase;
-      width: 100%;
-      height: 100%;
-      background-color: $color-secondary;
-
-      @include flexbox;
-    }
-  }
 }

@@ -2,6 +2,8 @@ export const path = {
   home: '/',
   notFound: '*',
   productPage: '/product/:id/:hash',
+  favoritePage: '/favorite',
+  cartPage: '/cart',
 };
 
 export const navItems = [
@@ -19,5 +21,16 @@ export const navItems = [
     label: 'About us',
     to: path.notFound,
     id: 3,
+  },
+];
+
+export const langOptions = [
+  {
+    id: 1,
+    label: 'Рус',
+  },
+  {
+    id: 2,
+    label: 'Eng',
   },
 ];

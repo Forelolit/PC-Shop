@@ -1,7 +1,6 @@
 import { Container, ProductDetails, Typography } from '@ui/index';
 import type { FC } from 'react';
 import styles from './ProductsBlock.module.scss';
-import { Link } from 'react-router';
 
 const items = [
   {
@@ -48,14 +47,14 @@ export const ProductsBlock: FC = () => {
         <Typography variant="h2">Готовые наборы</Typography>
         <div className={styles.content}>
           {items.map((item) => (
-            <Link to={`/product/${item.id}/${item.to}`}>
-              <ProductDetails
-                name={item.label}
-                thumbnail={item.image}
-                price={item.price}
-                discount={item.discount}
-              />
-            </Link>
+            <ProductDetails
+              key={item.id}
+              name={item.label}
+              thumbnail={item.image}
+              price={item.price}
+              discount={item.discount}
+              link={`/product/${item.id}/${item.to}`}
+            />
           ))}
         </div>
       </Container>

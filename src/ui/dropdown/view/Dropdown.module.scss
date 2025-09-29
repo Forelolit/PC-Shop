@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+  width: fit-content;
+
+  .dropdown {
+    padding: 6px 7px;
+    border-radius: 0.5rem;
+    gap: 5px;
+    cursor: pointer;
+    background-color: $color-white;
+
+    @include flexbox;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .title {
+      user-select: none;
+    }
+  }
+
+  .border {
+    border: 2px solid $color-border;
+  }
+
+  .result {
+    position: absolute;
+    border: 2px solid $color-border;
+    border-radius: 0.5rem;
+    padding: 2px 4px;
+    background-color: $color-white;
+    z-index: 1;
+    margin-top: 5px;
+    display: none;
+
+    & > * {
+      cursor: pointer;
+      margin: 2px 0;
+      padding: 2px 4px;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $color-border;
+        border-radius: 0.4rem;
+      }
+    }
+  }
+}

@@ -19,6 +19,14 @@ export const router = createBrowserRouter([
         path: path.productPage,
         element: <Pages.ProductPage />,
       },
+      {
+        path: path.cartPage,
+        element: <Pages.CartPage />,
+      },
+      {
+        path: path.favoritePage,
+        element: <Pages.FavoritePage />,
+      },
     ],
   },
 ]);

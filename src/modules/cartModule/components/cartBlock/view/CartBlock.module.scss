@@ -1,0 +1,19 @@
+.wrapper {
+  margin-bottom: 60px;
+
+  .filters {
+    margin: 20px 0;
+  }
+
+  .list {
+    padding: 40px 0;
+    border-top: 2px solid $color-border;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+
+    li {
+      list-style: none;
+    }
+  }
+}

@@ -1,17 +1,88 @@
 .button {
   border: 2px solid $color-border;
-  background-color: $color-primary;
-  padding: 10px 15px;
   border-radius: 0.6rem;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  width: fit-content;
+
+  &:active {
+    transform: scale(0.98);
+    transition: none;
+  }
+}
+
+.big {
+  padding: 15px 20px;
+}
+
+.regular {
+  padding: 10px 15px;
+}
+
+.small {
+  padding: 5px 10px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.primary {
+  background-color: $color-primary;
 
   &:hover {
-    background-color: $color-primary-hover;
+    opacity: 0.9;
+  }
+}
+
+.red {
+  background-color: $color-error;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.green {
+  background-color: $color-success;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.white {
+  background-color: $color-white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.variant {
+  &icon {
+    padding: 8px;
+  }
+
+  &outline {
+    background-color: transparent;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.disabled {
+  background-color: $color-text-muted;
+  opacity: 0.7;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: $color-text-muted;
   }
 
   &:active {
-    transform: scale(0.975);
-    transition: none;
+    transform: unset;
   }
 }
