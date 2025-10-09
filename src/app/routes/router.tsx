@@ -27,6 +27,14 @@ export const router = createBrowserRouter([
         path: path.favoritePage,
         element: <Pages.FavoritePage />,
       },
+      {
+        path: path.catalog,
+        element: <Pages.CatalogPage />,
+      },
+      {
+        path: path.aboutUs,
+        element: <Pages.AboutUs />,
+      },
     ],
   },
 ]);

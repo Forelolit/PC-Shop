@@ -1,6 +1,6 @@
 import styles from './HeroBlock.module.scss';
 import type { FC } from 'react';
-import { CustomSwiper } from '@ui/customSwiper';
+import { CustomSwiper } from '@components/index';
 
 const arrItems = [
   {

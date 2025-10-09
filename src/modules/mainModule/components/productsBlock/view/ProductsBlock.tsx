@@ -1,59 +1,30 @@
-import { Container, ProductDetails, Typography } from '@ui/index';
-import type { FC } from 'react';
 import styles from './ProductsBlock.module.scss';
-
-const items = [
-  {
-    id: 1,
-    to: 'PC-ULTRA-1000',
-    label: 'PC ULTRA 1000',
-    image:
-      'https://assets.corsair.com/image/upload/f_auto,q_auto/products/Systems/a7500/CS-9050135-NA/CORSAIR_VENGEANCE_a7500_NAUTILUS_RENDER_01.png',
-    price: 44000,
-    discount: null,
-  },
-  {
-    id: 2,
-    to: 'PC-ULTRA-3000',
-    label: 'PC ULTRA 3000',
-    image:
-      'https://www.memorypc.eu/media/0d/c5/1a/1751628433/563472-05-1751628431-secondlast-1751628432.webp',
-    price: 77000,
-    discount: 15,
-  },
-  {
-    id: 3,
-    to: 'PC-ULTRA-4000',
-    label: 'PC ULTRA 4000',
-    image:
-      'https://nzxt.com/cdn/shop/files/player-1-ww-09-04-24-hero-black-badge.png?v=1747249354&width=2048',
-    price: 90000,
-    discount: 20,
-  },
-  {
-    id: 4,
-    to: 'PC-ULTRA-2000',
-    label: 'PC ULTRA 2000',
-    image: 'https://m.media-amazon.com/images/I/7128GOUxSCL.jpg',
-    price: 55000,
-    discount: null,
-  },
-];
+import { ProductDetails } from '@components/index';
+import { useProducts } from '@hooks/useProducts';
+import { Container, Typography } from '@ui/index';
+import { path } from '@utils/constants/constants';
+import type { FC } from 'react';
 
 export const ProductsBlock: FC = () => {
+  const { products, isError, isLoading } = useProducts();
+
   return (
     <section className={styles.wrapper}>
       <Container>
         <Typography variant="h2">Готовые наборы</Typography>
+
+        {isError && <Typography variant="h3">Ошибка загрузки данных</Typography>}
+        {isLoading && <Typography variant="h3">Загрузка</Typography>}
+
         <div className={styles.content}>
-          {items.map((item) => (
+          {products?.map((item) => (
             <ProductDetails
               key={item.id}
-              name={item.label}
-              thumbnail={item.image}
+              title={item.title}
+              thumbnail={item.thumbnail}
               price={item.price}
-              discount={item.discount}
-              link={`/product/${item.id}/${item.to}`}
+              discountPercentage={item.discountPercentage}
+              link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
             />
           ))}
         </div>

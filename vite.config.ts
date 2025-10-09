@@ -13,6 +13,10 @@ export default defineConfig({
       '@types': '/src/types',
       '@ui': '/src/ui',
       '@utils': '/src/utils',
+      '@components': '/src/components',
+      '@api': '/src/api',
+      '@store': '/src/store',
+      '@hooks': '/src/hooks',
     },
   },
   css: {

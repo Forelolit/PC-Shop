@@ -1,8 +1,6 @@
-type ITSwiperVariant = 'banner' | 'gallery';
-
 export interface CustomSwiperProps {
   arrItems: { id: number; image: string; link?: string }[];
-  swiperVariant: ITSwiperVariant;
+  swiperVariant: 'banner' | 'gallery';
   slidesPerView?: number;
   className?: string;
   center?: boolean;

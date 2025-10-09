@@ -14,7 +14,7 @@ export interface ITTypography {
   weight?: ITWeights;
   align?: ITAlign;
   children: ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: () => void | React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
   truncate?: number;
   style?: React.CSSProperties;

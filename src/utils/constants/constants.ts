@@ -1,9 +1,12 @@
 export const path = {
   home: '/',
   notFound: '*',
+  product: '/product',
   productPage: '/product/:id/:hash',
   favoritePage: '/favorite',
   cartPage: '/cart',
+  catalog: '/catalog',
+  aboutUs: '/about-us',
 };
 
 export const navItems = [
@@ -14,12 +17,12 @@ export const navItems = [
   },
   {
     label: 'Catalog',
-    to: path.notFound,
+    to: path.catalog,
     id: 2,
   },
   {
     label: 'About us',
-    to: path.notFound,
+    to: path.aboutUs,
     id: 3,
   },
 ];

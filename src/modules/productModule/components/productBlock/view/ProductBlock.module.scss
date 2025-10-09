@@ -18,6 +18,10 @@
       display: grid;
       gap: 0.5rem;
 
+      & > * {
+        align-self: center;
+      }
+
       & > a {
         width: fit-content;
       }

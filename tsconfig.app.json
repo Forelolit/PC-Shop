@@ -32,7 +32,11 @@
       "@pages/*": ["pages/*"],
       "types/*": ["types/*"],
       "@ui/*": ["ui/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@api/*": ["api/*"],
+      "@store/*": ["store/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"]

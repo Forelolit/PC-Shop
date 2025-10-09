@@ -1,0 +1,14 @@
+.wrapper {
+  margin-bottom: 60px;
+
+  .list {
+    margin-top: 30px;
+    padding: 0;
+    display: grid;
+    gap: 20px;
+
+    & > * {
+      list-style: none;
+    }
+  }
+}

@@ -16,6 +16,12 @@ export const Dropdown: FC<DropdownProps> = ({
   variant = 'border',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeOption, setActiveOption] = useState(options[0].label);
+
+  const handleSelect = (label: string) => {
+    setActiveOption(label);
+    setIsOpen(false);
+  };
 
   gsap.registerPlugin(useGSAP);
 
@@ -48,8 +54,11 @@ export const Dropdown: FC<DropdownProps> = ({
         className={classNames(styles.dropdown, variant === 'border' ? styles.border : null)}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {/* FIXME Доделать */}
-        <Typography className={styles.title}>{title ? title : options[0].label}</Typography>
+        <Typography className={styles.title}>
+          {title
+            ? `${title}: ${activeOption}`
+            : options.find((opt) => opt.label === activeOption)?.label}
+        </Typography>
         <ChevronDownIcon className="icon" />
       </div>
 
@@ -60,7 +69,9 @@ export const Dropdown: FC<DropdownProps> = ({
               <Typography>{i.label}</Typography>
             </Link>
           ) : (
-            <Typography key={i.id}>{i.label}</Typography>
+            <Typography key={i.id} onClick={() => handleSelect(i.label)}>
+              {i.label}
+            </Typography>
           )
         )}
       </div>

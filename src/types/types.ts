@@ -1,8 +1,14 @@
 export interface Products {
-  image: string | null;
-  thumbnail: string | null;
-  name: string;
+  id: number;
+  title: string;
   description?: string;
-  discount?: number | null;
+  category?: string;
   price: number;
+  discountPercentage?: number;
+  rating: number;
+  stock: number;
+  tags: string[];
+  brand: string;
+  images: string[] | null;
+  thumbnail: string | null;
 }
