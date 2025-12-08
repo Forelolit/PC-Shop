@@ -11,8 +11,16 @@
     @include flexbox(space-between);
 
     .logo {
-      font-size: 48px;
-      font-weight: bold;
+      font-size: 40px;
+
+      a {
+        color: $color-text;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          color: $color-primary-hover;
+        }
+      }
     }
 
     .userFeatures {

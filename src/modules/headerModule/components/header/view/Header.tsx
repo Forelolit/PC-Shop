@@ -5,20 +5,17 @@ import { Link } from 'react-router';
 import { langOptions, path } from '@utils/constants/constants';
 import { Container, Button, Typography, Dropdown } from '@ui/index';
 import { HeartIcon, ShoppingBasketIcon, User2 } from 'lucide-react';
-
-const user = {
-  id: 1,
-  name: 'Aki',
-  isUserAuth: true,
-};
+import { useAuthStore } from '@store/useAuthStore';
 
 export const Header: FC = () => {
+  const { isAuth, user, logout } = useAuthStore();
+
   return (
     <header className={styles.header}>
       <Container className={styles.container}>
         <div className={styles.logo}>
           <Link to={path.home}>
-            <img src="/" alt="Logo image" />
+            <strong>PC</strong>SHOP
           </Link>
         </div>
 
@@ -27,35 +24,44 @@ export const Header: FC = () => {
         <div className={styles.userFeatures}>
           <Dropdown options={langOptions} />
 
-          <div className={styles.buttons}>
-            <Link to={path.favoritePage}>
-              <Button variant="outline">
-                <HeartIcon />
-              </Button>
-            </Link>
-            <Link to={path.cartPage}>
-              <Button variant="outline">
-                <ShoppingBasketIcon />
-              </Button>
-            </Link>
-          </div>
+          {isAuth && (
+            <div className={styles.buttons}>
+              <Link to={path.favoritePage}>
+                <Button variant="outline">
+                  <HeartIcon />
+                </Button>
+              </Link>
+              <Link to={path.cartPage}>
+                <Button variant="outline">
+                  <ShoppingBasketIcon />
+                </Button>
+              </Link>
+            </div>
+          )}
 
           <div>
-            {user.isUserAuth ? (
+            {isAuth ? (
               <Link to={'/'} className={styles.user}>
-                <Typography>{user.name ? user.name : 'User name'}</Typography>
+                <Typography>{user?.name ? user.name : 'User name'}</Typography>
                 <span className={styles.userAvatar}>
                   <User2 />
                 </span>
+                <Button size="small" onClick={() => logout()}>
+                  Выйти
+                </Button>
               </Link>
             ) : (
               <div className={styles.authButtons}>
-                <Button size="small" variant="outline">
-                  Регистрация
-                </Button>
-                <Button size="small" variant="outline">
-                  Войти
-                </Button>
+                <Link to={path.registration}>
+                  <Button size="small" variant="outline">
+                    Регистрация
+                  </Button>
+                </Link>
+                <Link to={path.login}>
+                  <Button size="small" variant="outline">
+                    Войти
+                  </Button>
+                </Link>
               </div>
             )}
           </div>

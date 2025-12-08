@@ -4,4 +4,6 @@ export { ProductPage } from './product/view/ProductPage';
 export { CartPage } from './cart/view/CartPage';
 export { FavoritePage } from './favorite/view/FavoritePage';
 export { CatalogPage } from './catalog/view/CatalogPage';
-export { AboutUs } from './aboutUs/view/AboutUs';
+export { AboutUsPage } from './aboutUs/view/AboutUsPage';
+export { RegistrationPage } from './registration/view/RegistrationPage';
+export { LoginPage } from './login/view/LoginPage';

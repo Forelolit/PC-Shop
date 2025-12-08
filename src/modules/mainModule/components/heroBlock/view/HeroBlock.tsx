@@ -5,8 +5,7 @@ import { CustomSwiper } from '@components/index';
 const arrItems = [
   {
     id: 1,
-    image:
-      'https://vrlatech.com/wp-content/uploads/slider/cache/f7466631d70080d7600de1521015e38d/sAltakfA.jpg',
+    image: 'https://artline.ua/storage/images/news/94/ru/1280_news_1598619740574478_0.webp',
     link: 'https://example.com',
   },
   {

@@ -17,16 +17,18 @@ export const ProductsBlock: FC = () => {
         {isLoading && <Typography variant="h3">Загрузка</Typography>}
 
         <div className={styles.content}>
-          {products?.map((item) => (
-            <ProductDetails
-              key={item.id}
-              title={item.title}
-              thumbnail={item.thumbnail}
-              price={item.price}
-              discountPercentage={item.discountPercentage}
-              link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
-            />
-          ))}
+          {products
+            ?.map((item) => (
+              <ProductDetails
+                key={item.id}
+                title={item.title}
+                thumbnail={item.thumbnail}
+                price={item.price}
+                discountPercentage={item.discountPercentage}
+                link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
+              />
+            ))
+            .slice(0, 6)}
         </div>
       </Container>
     </section>

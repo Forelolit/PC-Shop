@@ -1,0 +1,29 @@
+.wrapper {
+  position: relative;
+  height: calc(100vh - 143px - 70px);
+
+  .form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid $color-border;
+    border-radius: 1rem;
+    padding: 30px;
+    display: grid;
+    gap: 10px;
+    max-width: 550px;
+    width: 100%;
+
+    input {
+      border: 2px solid $color-border;
+      border-radius: 1rem;
+      padding: 5px 8px;
+      outline: none;
+
+      &:focus {
+        border: 2px solid transparent;
+        outline: 2px solid $color-primary;
+      }
+    }
+  }
+}

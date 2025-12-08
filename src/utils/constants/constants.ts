@@ -7,6 +7,8 @@ export const path = {
   cartPage: '/cart',
   catalog: '/catalog',
   aboutUs: '/about-us',
+  registration: '/registration',
+  login: '/login',
 };
 
 export const navItems = [

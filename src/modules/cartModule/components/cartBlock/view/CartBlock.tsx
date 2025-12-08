@@ -1,5 +1,6 @@
 import styles from './CartBlock.module.scss';
 import { ProductDetails } from '@components/index';
+import { useAuthStore } from '@store/useAuthStore';
 import { Typography, Container, Dropdown } from '@ui/index';
 import type { FC } from 'react';
 
@@ -23,12 +24,8 @@ const optionItems = [
   },
 ];
 
-const user = {
-  name: 'aki',
-  isAuth: false,
-};
-
 export const CartBlock: FC = () => {
+  const isAuth = useAuthStore((state) => state.isAuth);
   return (
     <section className={styles.wrapper}>
       <Container>
@@ -36,9 +33,9 @@ export const CartBlock: FC = () => {
 
         <Dropdown options={optionItems} title="Filter" className={styles.filters} />
 
-        {!user.isAuth && <Typography variant="h3">Сначала войдите в аккаунт</Typography>}
+        {!isAuth && <Typography variant="h3">Сначала войдите в аккаунт</Typography>}
 
-        {user.isAuth && (
+        {isAuth && (
           <ul className={styles.list}>
             {cartItems.map((item, index) => (
               <li key={index}>
