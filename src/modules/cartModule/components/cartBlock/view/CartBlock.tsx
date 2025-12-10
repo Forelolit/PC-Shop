@@ -1,10 +1,11 @@
 import styles from './CartBlock.module.scss';
 import { ProductDetails } from '@components/index';
 import { useAuthStore } from '@store/useAuthStore';
+import { useProductsStore } from '@store/useProductsStore';
 import { Typography, Container, Dropdown } from '@ui/index';
+import { path } from '@utils/constants/constants';
 import type { FC } from 'react';
 
-const cartItems = ['sdaf', 'asdf', 'as;ldifjkaoi', 'asdfadfasd'];
 const optionItems = [
   {
     id: 1,
@@ -25,11 +26,13 @@ const optionItems = [
 ];
 
 export const CartBlock: FC = () => {
+  const cartItems = useProductsStore((state) => state.cartProducts);
   const isAuth = useAuthStore((state) => state.isAuth);
+
   return (
     <section className={styles.wrapper}>
       <Container>
-        <Typography variant="h2">Your cart</Typography>
+        <Typography variant="h2">Ваша корзина</Typography>
 
         <Dropdown options={optionItems} title="Filter" className={styles.filters} />
 
@@ -37,9 +40,22 @@ export const CartBlock: FC = () => {
 
         {isAuth && (
           <ul className={styles.list}>
+            {!cartItems.length && (
+              <Typography variant="h3" className={styles.empty}>
+                Здесь будут ваши товары
+              </Typography>
+            )}
             {cartItems.map((item, index) => (
               <li key={index}>
-                <ProductDetails price={1000} title={item} thumbnail={''} link="" />
+                <ProductDetails
+                  key={item.id}
+                  title={item.title}
+                  thumbnail={item.thumbnail}
+                  price={item.price}
+                  discountPercentage={item.discountPercentage}
+                  link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
+                  item={item}
+                />
               </li>
             ))}
           </ul>

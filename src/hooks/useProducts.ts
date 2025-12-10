@@ -2,7 +2,11 @@ import { productsApi } from '@api/useGetAllProducts';
 import { useProductsStore } from '@store/useProductsStore';
 import { useEffect } from 'react';
 
-export const useProducts = () => {
+interface useProductsArgs {
+  quantity: number;
+}
+
+export const useProducts = ({ quantity }: useProductsArgs) => {
   const setProducts = useProductsStore((state) => state.setProducts);
   const { data, isLoading, isError } = productsApi.useGetAll();
 
@@ -10,7 +14,7 @@ export const useProducts = () => {
     if (data) setProducts(data);
   }, [data, setProducts]);
 
-  const products = useProductsStore((state) => state.products);
+  const products = useProductsStore((state) => state.products).slice(0, quantity);
 
   return { products, isLoading, isError };
 };

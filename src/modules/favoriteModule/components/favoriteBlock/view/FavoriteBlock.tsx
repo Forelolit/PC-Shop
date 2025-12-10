@@ -1,9 +1,11 @@
+import { useAuthStore } from '@store/useAuthStore';
 import styles from './FavoriteBlock.module.scss';
 import { ProductDetails } from '@components/index';
+import { useProductsStore } from '@store/useProductsStore';
 import { Typography, Container, Dropdown } from '@ui/index';
+import { path } from '@utils/constants/constants';
 import type { FC } from 'react';
 
-const favoriteItems = ['sdaf', 'asdf', 'as;ldifjkaoi', 'asdfadfasd'];
 const optionItems = [
   {
     id: 1,
@@ -24,6 +26,9 @@ const optionItems = [
 ];
 
 export const FavoriteBlock: FC = () => {
+  const favoriteItems = useProductsStore((state) => state.favoriteProducts);
+  const isAuth = useAuthStore((state) => state.isAuth);
+
   return (
     <section className={styles.wrapper}>
       <Container>
@@ -31,13 +36,30 @@ export const FavoriteBlock: FC = () => {
 
         <Dropdown options={optionItems} title="Filter" className={styles.filters} />
 
-        <ul className={styles.list}>
-          {favoriteItems.map((item, index) => (
-            <li key={index}>
-              <ProductDetails price={1000} title={item} thumbnail={''} link="" />
-            </li>
-          ))}
-        </ul>
+        {!isAuth && <Typography variant="h3">Сначала войдите в аккаунт</Typography>}
+
+        {isAuth && (
+          <ul className={styles.list}>
+            {!favoriteItems.length && (
+              <Typography variant="h3" className={styles.empty}>
+                Здесь будут ваши избранные товары
+              </Typography>
+            )}
+            {favoriteItems.map((item, index) => (
+              <li key={index}>
+                <ProductDetails
+                  key={item.id}
+                  title={item.title}
+                  thumbnail={item.thumbnail}
+                  price={item.price}
+                  discountPercentage={item.discountPercentage}
+                  link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
+                  item={item}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </Container>
     </section>
   );

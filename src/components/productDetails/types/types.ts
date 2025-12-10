@@ -5,4 +5,5 @@ type ProductBase = Pick<Products, 'price' | 'discountPercentage' | 'title' | 'th
 export type ProductDetailsProps = ProductBase & {
   link?: string;
   cardOrientation?: 'vertical' | 'horizontal';
+  item: Products;
 };

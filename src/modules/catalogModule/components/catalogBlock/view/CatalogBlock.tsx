@@ -6,7 +6,7 @@ import { path } from '@utils/constants/constants';
 import type { FC } from 'react';
 
 export const CatalogBlock: FC = () => {
-  const { products, isError, isLoading } = useProducts();
+  const { products, isError, isLoading } = useProducts({ quantity: 10 });
 
   return (
     <section className={styles.wrapper}>
@@ -20,6 +20,7 @@ export const CatalogBlock: FC = () => {
           {products?.map((item) => (
             <li key={item.id}>
               <ProductDetails
+                item={item}
                 price={item.price}
                 title={item.title}
                 thumbnail={item.thumbnail}

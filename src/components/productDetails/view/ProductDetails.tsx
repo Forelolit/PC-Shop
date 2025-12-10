@@ -7,6 +7,7 @@ import { Button } from '@ui/button';
 import { HeartIcon, ShoppingBasketIcon } from 'lucide-react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import { useProductsStore } from '@store/useProductsStore';
 
 export const ProductDetails: FC<ProductDetailsProps> = ({
   title,
@@ -15,9 +16,12 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
   discountPercentage,
   link = '/',
   cardOrientation = 'vertical',
+  item,
 }) => {
   const [activeFavorite, setActiveFavorite] = useState(false);
   const [activeCart, setActiveCart] = useState(false);
+  const addToCard = useProductsStore((state) => state.addCartProduct);
+  const addToFavorite = useProductsStore((state) => state.addFavoriteProduct);
 
   return (
     <>
@@ -48,7 +52,14 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               <HeartIcon color="white" />
             </Button>
           ) : (
-            <Button variant="icon" color="white" onClick={() => setActiveFavorite(true)}>
+            <Button
+              variant="icon"
+              color="white"
+              onClick={() => {
+                setActiveFavorite(true);
+                addToFavorite(item);
+              }}
+            >
               <HeartIcon color="#ef4444" />
             </Button>
           )}
@@ -58,7 +69,14 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               <ShoppingBasketIcon color="white" />
             </Button>
           ) : (
-            <Button variant="icon" color="white" onClick={() => setActiveCart(true)}>
+            <Button
+              variant="icon"
+              color="white"
+              onClick={() => {
+                setActiveCart(true);
+                addToCard(item);
+              }}
+            >
               <ShoppingBasketIcon color="#10b981" />
             </Button>
           )}
