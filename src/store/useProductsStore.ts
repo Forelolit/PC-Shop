@@ -4,11 +4,10 @@ import { persist } from 'zustand/middleware';
 
 interface ProductsState {
   products: Products[];
-  setProducts: (products: Products[]) => void;
-  addProduct: (product: Products) => void;
-  clearProducts: () => void;
   cartProducts: Products[];
   favoriteProducts: Products[];
+  setProducts: (products: Products[]) => void;
+  addProduct: (product: Products) => void;
   addCartProduct: (product: Products) => void;
   addFavoriteProduct: (product: Products) => void;
 }
@@ -17,11 +16,10 @@ export const useProductsStore = create<ProductsState>()(
   persist(
     (set) => ({
       products: [],
-      setProducts: (products) => set({ products }),
-      addProduct: (product) => set((state) => ({ products: [...state.products, product] })),
-      clearProducts: () => set({ products: [] }),
       cartProducts: [],
       favoriteProducts: [],
+      setProducts: (products) => set({ products }),
+      addProduct: (product) => set((state) => ({ products: [...state.products, product] })),
       addCartProduct: (product) =>
         set((state) => {
           const exists = state.cartProducts.some((p) => p.id === product.id);

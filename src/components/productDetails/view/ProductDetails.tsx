@@ -1,5 +1,5 @@
 import styles from './ProductDetails.module.scss';
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 import { Typography } from '@ui/typography';
 import type { ProductDetailsProps } from '../types/types';
 import { ProductPrice } from '@components/productPrice';
@@ -18,10 +18,13 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
   cardOrientation = 'vertical',
   item,
 }) => {
-  const [activeFavorite, setActiveFavorite] = useState(false);
-  const [activeCart, setActiveCart] = useState(false);
   const addToCard = useProductsStore((state) => state.addCartProduct);
   const addToFavorite = useProductsStore((state) => state.addFavoriteProduct);
+
+  const activeCart = useProductsStore((state) => state.cartProducts.some((p) => p.id === item.id));
+  const activeFavorite = useProductsStore((state) =>
+    state.favoriteProducts.some((p) => p.id === item.id)
+  );
 
   return (
     <>
@@ -48,7 +51,13 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
 
         <div className={styles.buttons}>
           {activeFavorite ? (
-            <Button variant="icon" color="red" onClick={() => setActiveFavorite(false)}>
+            <Button
+              variant="icon"
+              color="red"
+              onClick={() => {
+                addToFavorite(item);
+              }}
+            >
               <HeartIcon color="white" />
             </Button>
           ) : (
@@ -56,7 +65,6 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               variant="icon"
               color="white"
               onClick={() => {
-                setActiveFavorite(true);
                 addToFavorite(item);
               }}
             >
@@ -65,7 +73,13 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
           )}
 
           {activeCart ? (
-            <Button variant="icon" color="green" onClick={() => setActiveCart(false)}>
+            <Button
+              variant="icon"
+              color="green"
+              onClick={() => {
+                addToCard(item);
+              }}
+            >
               <ShoppingBasketIcon color="white" />
             </Button>
           ) : (
@@ -73,7 +87,6 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               variant="icon"
               color="white"
               onClick={() => {
-                setActiveCart(true);
                 addToCard(item);
               }}
             >
