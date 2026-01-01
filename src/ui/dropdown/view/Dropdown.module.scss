@@ -47,3 +47,11 @@
     }
   }
 }
+
+.disabled {
+  opacity: 0.6;
+
+  .dropdown:hover {
+    opacity: unset;
+  }
+}

@@ -12,13 +12,20 @@ export const Dropdown: FC<DropdownProps> = ({
   options,
   title,
   onClick,
-  className,
+  getValue,
+  className = '',
   variant = 'border',
+  disabled = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeOption, setActiveOption] = useState(options[0].label);
 
-  const handleSelect = (label: string) => {
+  const handleSelect = (label: string, value: string) => {
+    if (disabled) {
+      return;
+    }
+
+    getValue(value);
     setActiveOption(label);
     setIsOpen(false);
   };
@@ -49,12 +56,15 @@ export const Dropdown: FC<DropdownProps> = ({
   );
 
   return (
-    <div ref={container} className={classNames(styles.wrapper, className)}>
+    <div
+      ref={container}
+      className={classNames(className, styles.wrapper, disabled && styles.disabled)}
+    >
       <div
         className={classNames(styles.dropdown, variant === 'border' ? styles.border : null)}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Typography className={styles.title}>
+        <Typography truncate={25} className={styles.title}>
           {title
             ? `${title}: ${activeOption}`
             : options.find((opt) => opt.label === activeOption)?.label}
@@ -69,7 +79,7 @@ export const Dropdown: FC<DropdownProps> = ({
               <Typography>{i.label}</Typography>
             </Link>
           ) : (
-            <Typography key={i.id} onClick={() => handleSelect(i.label)}>
+            <Typography key={i.id} onClick={() => handleSelect(i.label, i.value)}>
               {i.label}
             </Typography>
           )

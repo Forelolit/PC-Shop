@@ -39,3 +39,31 @@ export const langOptions = [
     label: 'Eng',
   },
 ];
+
+export const filter = [
+  {
+    id: 1,
+    label: 'Первые по очереди добавления',
+    value: 'firstOrder',
+  },
+  {
+    id: 2,
+    label: 'Последние по очереди добавления',
+    value: 'lastOrder',
+  },
+  {
+    id: 3,
+    label: 'Наибольшая цена',
+    value: 'biggestPrice',
+  },
+  {
+    id: 4,
+    label: 'Наименьшая цена',
+    value: 'lowestPrice',
+  },
+  {
+    id: 5,
+    label: 'По рейтингу',
+    value: 'rating',
+  },
+];

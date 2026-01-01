@@ -4,16 +4,12 @@ import { Typography } from '@ui/typography';
 import type { ProductDetailsProps } from '../types/types';
 import { ProductPrice } from '@components/productPrice';
 import { Button } from '@ui/button';
-import { HeartIcon, ShoppingBasketIcon } from 'lucide-react';
+import { HeartIcon, ShoppingBasketIcon, Star } from 'lucide-react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import { useProductsStore } from '@store/useProductsStore';
 
 export const ProductDetails: FC<ProductDetailsProps> = ({
-  title,
-  price = 0,
-  thumbnail,
-  discountPercentage,
   link = '/',
   cardOrientation = 'vertical',
   item,
@@ -36,18 +32,23 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
       >
         <Link to={link} className={styles.linkImage}>
           <div className={styles.imageWrapper}>
-            {thumbnail && <img src={thumbnail ?? '/'} alt={`${title}, image`} />}
-            {!thumbnail && <div className={styles.skeleton}>No image</div>}
+            {item.thumbnail && <img src={item.thumbnail ?? '/'} alt={`${item.title}, image`} />}
+            {!item.thumbnail && <div className={styles.skeleton}>No image</div>}
           </div>
         </Link>
 
         <Link to={link} className={styles.linkTitle}>
           <Typography className={styles.title} weight="semiBold" truncate={30}>
-            {title}
+            {item.title}
           </Typography>
         </Link>
 
-        <ProductPrice price={price} discountPercentage={discountPercentage} />
+        <ProductPrice price={item.price} discountPercentage={item.discountPercentage} />
+
+        <Typography className={styles.rating}>
+          <Star fill="#ffee8c" />
+          {item.rating}
+        </Typography>
 
         <div className={styles.buttons}>
           {activeFavorite ? (
