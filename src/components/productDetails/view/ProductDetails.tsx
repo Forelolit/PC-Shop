@@ -8,6 +8,7 @@ import { HeartIcon, ShoppingBasketIcon, Star } from 'lucide-react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import { useProductsStore } from '@store/useProductsStore';
+import { toast } from 'react-toastify';
 
 export const ProductDetails: FC<ProductDetailsProps> = ({
   link = '/',
@@ -57,6 +58,7 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               color="red"
               onClick={() => {
                 addToFavorite(item);
+                toast('♥ Вы убрали из избранного');
               }}
             >
               <HeartIcon color="white" />
@@ -67,6 +69,7 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               color="white"
               onClick={() => {
                 addToFavorite(item);
+                toast('♥ Вы добавили в избранное');
               }}
             >
               <HeartIcon color="#ef4444" />
@@ -79,6 +82,7 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               color="green"
               onClick={() => {
                 addToCard(item);
+                toast('🛒 Вы убрали из корзины');
               }}
             >
               <ShoppingBasketIcon color="white" />
@@ -89,6 +93,7 @@ export const ProductDetails: FC<ProductDetailsProps> = ({
               color="white"
               onClick={() => {
                 addToCard(item);
+                toast('🛒 Вы добавили в корзину');
               }}
             >
               <ShoppingBasketIcon color="#10b981" />

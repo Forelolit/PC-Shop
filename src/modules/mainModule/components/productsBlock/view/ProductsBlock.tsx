@@ -20,10 +20,6 @@ export const ProductsBlock: FC = () => {
           {products?.map((item) => (
             <ProductDetails
               key={item.id}
-              title={item.title}
-              thumbnail={item.thumbnail}
-              price={item.price}
-              discountPercentage={item.discountPercentage}
               link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
               item={item}
             />
