@@ -6,6 +6,10 @@
     grid-template-columns: 2fr 1fr;
     gap: 20px;
 
+    .loading {
+      @include flexbox;
+    }
+
     .swiper {
       border: 2px solid $color-border;
       border-radius: 0.8rem;

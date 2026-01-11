@@ -12,3 +12,13 @@ export interface Products {
   images: string[] | null;
   thumbnail: string | null;
 }
+
+export interface AuthResponse {
+  access: string;
+  refresh: string;
+  user: {
+    id: number;
+    email: string;
+    name: string;
+  };
+}

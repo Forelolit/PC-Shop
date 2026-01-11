@@ -11,4 +11,5 @@ export interface ButtonProps {
   variant?: ITVariant;
   color?: ITColor;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  className?: string;
 }

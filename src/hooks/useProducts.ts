@@ -1,20 +1,29 @@
 import { productsApi } from '@api/useGetAllProducts';
-import { useProductsStore } from '@store/useProductsStore';
-import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-interface useProductsArgs {
-  quantity: number;
-}
+export const useProducts = (pageNumber: number, limit: number) => {
+  const {
+    data: products,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ['products', { pageNumber }],
+    queryFn: () => productsApi.useGetAll(pageNumber, limit),
+  });
 
-export const useProducts = ({ quantity }: useProductsArgs) => {
-  const setProducts = useProductsStore((state) => state.setProducts);
-  const { data, isLoading, isError } = productsApi.useGetAll();
+  return { products, isLoading, isError, refetch };
+};
 
-  useEffect(() => {
-    if (data) setProducts(data);
-  }, [data, setProducts]);
+export const useProductsById = (id: number) => {
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['products', { id }],
+    queryFn: () => productsApi.useGetById(id),
+  });
 
-  const products = useProductsStore((state) => state.products).slice(0, quantity);
-
-  return { products, isLoading, isError };
+  return { product, isLoading, isError };
 };

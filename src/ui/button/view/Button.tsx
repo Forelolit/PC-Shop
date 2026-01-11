@@ -13,6 +13,7 @@ export const Button: FC<ButtonProps> = ({
   disabled,
   onClick,
   icon,
+  className = '',
 }) => {
   const sizeMap = {
     big: 'h3',
@@ -21,6 +22,7 @@ export const Button: FC<ButtonProps> = ({
   } as const;
 
   const classNamedGenerated = classNames(
+    className,
     styles.button,
     styles[size],
     styles[`variant${variant}`],

@@ -1,17 +1,23 @@
 import styles from './ProductsBlock.module.scss';
 import { ProductDetails } from '@components/index';
 import { useProducts } from '@hooks/useProducts';
-import { Container, Typography } from '@ui/index';
+import { Button, Container, Typography } from '@ui/index';
 import { path } from '@utils/constants/constants';
 import type { FC } from 'react';
+import { Link } from 'react-router';
 
 export const ProductsBlock: FC = () => {
-  const { products, isError, isLoading } = useProducts({ quantity: 6 });
+  const { products, isError, isLoading } = useProducts(0, 6);
 
   return (
     <section className={styles.wrapper}>
       <Container>
-        <Typography variant="h2">Готовые наборы</Typography>
+        <div className={styles.title}>
+          <Typography variant="h2">Готовые наборы</Typography>
+          <Link to={path.catalog}>
+            <Button size="small">Ещё</Button>
+          </Link>
+        </div>
 
         {isError && <Typography variant="h3">Ошибка загрузки данных</Typography>}
         {isLoading && <Typography variant="h3">Загрузка</Typography>}

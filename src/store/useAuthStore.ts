@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 
 interface AuthStore {
   isAuth: boolean;
-  user: { id: string; name: string } | null;
+  user: { id: number; email?: string; name: string } | null;
   setUser: (user: AuthStore['user']) => void;
   logout: () => void;
 }

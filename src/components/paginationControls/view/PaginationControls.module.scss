@@ -1,0 +1,28 @@
+.wrapper {
+  .controls {
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    padding: 2px;
+    border-radius: 0.8rem;
+    gap: 10px;
+
+    @include flexbox;
+
+    .pageNumber {
+      margin-inline: 10px;
+    }
+
+    .separator {
+      border: 1px solid $color-secondary;
+      height: 20px;
+    }
+
+    .buttonsList {
+      gap: 4px;
+
+      @include flexbox;
+    }
+  }
+
+  @include flexbox;
+}

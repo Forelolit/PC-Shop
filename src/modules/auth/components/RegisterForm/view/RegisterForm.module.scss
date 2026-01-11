@@ -1,29 +1,44 @@
 .wrapper {
-  position: relative;
-  height: calc(100vh - 143px - 70px);
+  min-height: 80vh;
 
-  .form {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 2px solid $color-border;
-    border-radius: 1rem;
-    padding: 30px;
-    display: grid;
-    gap: 10px;
-    max-width: 550px;
-    width: 100%;
+  @include flexbox;
 
-    input {
+  .container {
+    gap: 20px;
+
+    @include flexbox($direction: column);
+
+    .form {
       border: 2px solid $color-border;
       border-radius: 1rem;
-      padding: 5px 8px;
-      outline: none;
+      padding: 30px;
+      display: grid;
+      gap: 10px;
+      max-width: 550px;
+      width: 100%;
 
-      &:focus {
-        border: 2px solid transparent;
-        outline: 2px solid $color-primary;
+      input {
+        border: 2px solid $color-border;
+        border-radius: 1rem;
+        padding: 5px 8px;
+        outline: none;
+
+        &:focus {
+          border: 2px solid transparent;
+          outline: 2px solid $color-primary;
+        }
       }
+    }
+
+    .separator {
+      border: 1px solid $color-border;
+      height: 20px;
+    }
+
+    .googleAuth {
+      gap: 15px;
+
+      @include flexbox;
     }
   }
 }

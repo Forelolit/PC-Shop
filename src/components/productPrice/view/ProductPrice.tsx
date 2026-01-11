@@ -18,7 +18,7 @@ export const ProductPrice: FC<ProductPriceProps> = ({ price, discountPercentage 
       {discountPercentage && discountPercentage > 0 && (
         <>
           <Typography color="grey" variant="p">
-            <s>{price.toFixed(1)}</s>
+            <s>{Number(price).toFixed(1)}</s>
           </Typography>
 
           <Typography className={styles.sale} color="white" variant="h5">

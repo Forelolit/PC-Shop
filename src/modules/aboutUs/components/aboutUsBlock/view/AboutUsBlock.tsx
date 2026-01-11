@@ -1,12 +1,134 @@
 import styles from './AboutUsBlock.module.scss';
-import { Container, Typography } from '@ui/index';
 import type { FC } from 'react';
+import { Container, Typography } from '@ui/index';
 
 export const AboutUsBlock: FC = () => {
   return (
     <section className={styles.wrapper}>
       <Container>
-        <Typography variant="h2">About us</Typography>
+        <div className={styles.block}>
+          <Typography variant="h3">PCSHOP: Технологии, которые работают на вас</Typography>
+          <Typography>
+            Добро пожаловать в <strong>PCSHOP</strong>. Мы — не просто интернет-магазин компьютеров.
+            Мы — команда энтузиастов, инженеров и геймеров, которые верят, что правильно подобранная
+            техника способна изменить качество жизни, работы и развлечений.
+          </Typography>
+          <Typography>
+            Для нас компьютер — это не набор микросхем и проводов в металлическом корпусе. Это
+            инструмент для создания шедевров, портал в игровые вселенные и надежный партнер в
+            бизнесе.
+          </Typography>
+        </div>
+
+        <div className={styles.block}>
+          <Typography variant="h4">Наша Философия</Typography>
+          <Typography>
+            Мы основали PCSHOP с простой идеей: технологии должны быть доступными, понятными и
+            надежными. В мире, где «железо» устаревает каждый год, сложно уследить за трендами. Мы
+            берем эту задачу на себя. Мы фильтруем информационный шум, тестируем компоненты и
+            предлагаем вам только те решения, которые реально работают и оправдывают свою цену.
+          </Typography>
+          <Typography>
+            <em>
+              "Мы не продаем характеристики. Мы продаем решения ваших задач — будь то рендеринг
+              4K-видео, победа в киберспортивном турнире или стабильная работа офисных приложений."
+            </em>
+          </Typography>
+        </div>
+
+        <div className={styles.block}>
+          <Typography variant="h4">Что мы предлагаем</Typography>
+          <Typography>
+            Мы специализируемся на создании и продаже вычислительной техники под любые задачи:
+          </Typography>
+          <ul className={styles.list}>
+            <li>
+              <Typography>
+                <strong>Игровые монстры:</strong> Максимальная производительность, идеальное
+                охлаждение и эстетика RGB для тех, кто не признает компромиссов в графике.
+              </Typography>
+            </li>
+            <li>
+              <Typography>
+                <strong>Рабочие станции:</strong> Мощные системы для дизайнеров, архитекторов,
+                видеомонтажеров и программистов, где важна скорость и стабильность.
+              </Typography>
+            </li>
+            <li>
+              <Typography>
+                <strong>Офисные решения:</strong> Надежные, тихие и энергоэффективные компьютеры для
+                комфортной повседневной работы.
+              </Typography>
+            </li>
+            <li>
+              <Typography>
+                <strong>Индивидуальная сборка:</strong> Если стандартные решения вам не подходят, мы
+                соберем уникальную систему под ваши специфические требования и бюджет.
+              </Typography>
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.block}>
+          <Typography variant="h4">Почему выбирают нас?</Typography>
+          <Typography>
+            Покупка компьютера — это инвестиция. Мы делаем всё, чтобы она была оправданной и
+            безопасной.
+          </Typography>
+          <ul className={styles.list}>
+            <li>
+              <Typography>
+                <strong>Честная экспертиза.</strong> Мы никогда не посоветуем вам переплачивать за
+                ненужные функции или покупать устаревшие компоненты.
+              </Typography>
+            </li>
+            <li>
+              <Typography>
+                <strong>Контроль качества.</strong> Каждая сборка проходит многоступенчатое
+                стресс-тестирование перед отправкой.
+              </Typography>
+            </li>
+            <li>
+              <Typography>
+                <strong>Гарантия и поддержка.</strong> Мы не бросаем клиентов после покупки. Если
+                возникнет вопрос или проблема — наша техподдержка всегда на связи.
+              </Typography>
+            </li>
+            <li>
+              <Typography>
+                <strong>Только проверенные бренды.</strong> Мы работаем напрямую с дистрибьюторами
+                ведущих мировых производителей.
+              </Typography>
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.block}>
+          <Typography variant="h4">Наш подход к сборке</Typography>
+          <Typography>
+            Мы относимся к кабель-менеджменту как к искусству. Внутри каждого компьютера от PCSHOP —
+            идеальный порядок. Это не только красиво, но и необходимо для правильной циркуляции
+            воздуха и долговечности системы.
+          </Typography>
+          <Typography>
+            Вы получаете устройство формата <strong>Plug & Play</strong> («Включи и играй»). Все
+            драйверы установлены, BIOS настроен, система оптимизирована. Вам остается только нажать
+            кнопку питания.
+          </Typography>
+        </div>
+
+        <div className={styles.block}>
+          <Typography variant="h4">Готовы обновить свой цифровой опыт?</Typography>
+          <Typography>
+            Неважно, выбираете ли вы свой первый компьютер или обновляете парк техники для целого
+            офиса — мы готовы помочь.
+          </Typography>
+          <Typography variant="h5">
+            PCSHOP — Ваш надежный проводник в мир высоких технологий.
+          </Typography>
+
+          <div className={styles.actions}></div>
+        </div>
       </Container>
     </section>
   );
