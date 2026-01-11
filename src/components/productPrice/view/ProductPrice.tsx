@@ -5,24 +5,24 @@ import { Typography } from '@ui/typography';
 import { priceAfterDiscount } from '@utils/helpers/helpers';
 
 export const ProductPrice: FC<ProductPriceProps> = ({ price, discountPercentage }) => {
+  const hasDiscount = Boolean(discountPercentage && discountPercentage > 0);
+
   return (
     <div className={styles.priceBlock}>
-      {!discountPercentage && <Typography variant="h4">{price} Сом</Typography>}
+      {!hasDiscount && <Typography variant="h4">{Number(price).toFixed(1)} Сом</Typography>}
 
-      {discountPercentage && (
-        <Typography variant="h4">
-          {priceAfterDiscount(price, discountPercentage).toFixed(1)} Сом
-        </Typography>
-      )}
-
-      {discountPercentage && discountPercentage > 0 && (
+      {hasDiscount && (
         <>
+          <Typography variant="h4">
+            {priceAfterDiscount(price, discountPercentage!).toFixed(1)} Сом
+          </Typography>
+
           <Typography color="grey" variant="p">
             <s>{Number(price).toFixed(1)}</s>
           </Typography>
 
           <Typography className={styles.sale} color="white" variant="h5">
-            {discountPercentage.toFixed(1)}% Sale
+            {discountPercentage!.toFixed(1)}% Sale
           </Typography>
         </>
       )}
