@@ -1,18 +1,15 @@
 import { productsApi } from '@api/useGetAllProducts';
 import { useQuery } from '@tanstack/react-query';
 
-export const useProducts = (pageNumber: number, limit: number) => {
-  const {
-    data: products,
-    isLoading,
-    isError,
-    refetch,
-  } = useQuery({
+export const useProducts = (
+  pageNumber: number,
+  limit: number | 'unset',
+  filters?: { brand?: string; category?: string }
+) => {
+  return useQuery({
     queryKey: ['products', { pageNumber }],
-    queryFn: () => productsApi.useGetAll(pageNumber, limit),
+    queryFn: () => productsApi.useGetAll(pageNumber, limit, filters),
   });
-
-  return { products, isLoading, isError, refetch };
 };
 
 export const useProductsById = (id: number) => {

@@ -1,11 +1,20 @@
 import { $api } from '@utils/lib/requester';
-import type { Products } from 'types/types';
+import type { Products, ProductsResponse } from 'types/types';
 
 export const productsApi = {
-  useGetAll: async (pageNumber: number, limit: number) => {
-    const offset = pageNumber * limit;
-    const res = await $api.get<{ products: Products[] }>(`/products?limit=${limit}&skip=${offset}`);
-    return res.data.products;
+  useGetAll: async (
+    page: number,
+    limit: number | 'unset',
+    filters: { brand?: string; category?: string } = {}
+  ) => {
+    const params = new URLSearchParams({
+      page: page.toString(),
+      limit: limit === 'unset' ? '' : limit.toString(),
+      ...filters,
+    });
+
+    const res = await $api.get<ProductsResponse>(`/products/?${params.toString()}`);
+    return res.data;
   },
   useGetById: async (id: number) => {
     const res = await $api.get<Products>(`/products/${id}`);

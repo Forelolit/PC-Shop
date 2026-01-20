@@ -22,3 +22,15 @@ export interface AuthResponse {
     name: string;
   };
 }
+
+export interface ProductsResponse {
+  products: Products[];
+  total: number;
+  totalPages: number;
+  currentPage: number;
+  limit: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+  nextPageUrl: string | null;
+  prevPageUrl: string | null;
+}

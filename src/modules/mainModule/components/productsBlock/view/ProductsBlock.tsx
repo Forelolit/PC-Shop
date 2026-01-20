@@ -7,7 +7,7 @@ import type { FC } from 'react';
 import { Link } from 'react-router';
 
 export const ProductsBlock: FC = () => {
-  const { products, isError, isLoading } = useProducts(0, 6);
+  const { data, isError, isLoading } = useProducts(1, 6);
 
   return (
     <section className={styles.wrapper}>
@@ -23,7 +23,7 @@ export const ProductsBlock: FC = () => {
         {isLoading && <Typography variant="h3">Загрузка</Typography>}
 
         <div className={styles.content}>
-          {products?.map((item) => (
+          {data?.products?.map((item) => (
             <ProductDetails
               key={item.id}
               link={`${path.product}/${item.id}/${item.title.split(' ').join('-')}`}
